@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Khmer Unicode Layout for External Keyboard</string>
+    <string name="app_developer" translatable="false">pp-spaces.com</string>
 </resources>
