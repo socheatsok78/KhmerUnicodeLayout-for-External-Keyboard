@@ -265,6 +265,7 @@ key RIGHT_BRACKET {
 key SEMICOLON {
     label:                              ';'
     base:                               '\u17be'
+    shift:                              '\u17fe'
 }
 key APOSTROPHE {
     label:                              '\''
