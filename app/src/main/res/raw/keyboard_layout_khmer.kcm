@@ -197,6 +197,7 @@ key U {
 key V {
     label:                              'V'
     base:                               '\u179c'
+    shift:                              '\u17fd'
 }
 key W {
     label:                              'W'
