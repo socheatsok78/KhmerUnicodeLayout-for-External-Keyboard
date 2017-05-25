@@ -8,5 +8,8 @@
 ## Zero Width Space U+200B
 * use U+200B as Zero Width Space
 
+## Zero Width Joiner U+200D
+* use U+200D as Zero Width Non-Joiner
+
 ## Zero Width Non-Joiner U+200C
 * use U+200C as Zero Width Non-Joiner
