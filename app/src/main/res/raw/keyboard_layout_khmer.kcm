@@ -274,7 +274,7 @@ key APOSTROPHE {
 }
 key COMMA {
     label:                              ','
-    base:                               ','
+    base:                               '\u17fc'
     shift:                              '<'
     ralt:                               ','
 }
