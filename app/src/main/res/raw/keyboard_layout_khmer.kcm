@@ -223,6 +223,12 @@ key Z {
 #
 
 # Within Number Row Key
+key GRAVE {
+    label:                              '`'
+    base:                               '\u00AB'
+    shift:                              '\u00BB'
+    ralt:                               '\u200d'
+}
 key MINUS {
     label:                              '-'
     base:                               '\u17a5'
