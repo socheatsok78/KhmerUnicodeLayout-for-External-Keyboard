@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <receiver android:name=".InputReceiver"
-            android:label="@string/app_developer"> <!--Show Developer Name-->
+            android:label="@string/keyboard_developer"> <!--Show Developer Name-->
             <intent-filter>
                 <action android:name="android.hardware.input.action.QUERY_KEYBOARD_LAYOUTS" />
             </intent-filter>
