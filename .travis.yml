@@ -41,8 +41,9 @@ before_install:
 script:
   - gradle build
 #
-# after_success:
-#   -
+after_success:
+  - echo "Build Success"
 #
-# after_failure:
-#   -
+after_failure:
+  - echo "Oops! Something Went wrong..."
+  - gradle -v
