@@ -41,9 +41,9 @@ before_install:
 # install:
 #   -
 #
-# script:
+script:
   # - gradle --full-stacktrace build
-  # - ./gradlew build
+  - ./gradlew build
 #
 after_success:
   - echo "Build Success, Stop Gradle Deamon"
