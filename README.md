@@ -5,8 +5,11 @@
 
 ⌨ Khmer Unicode Keyboard Layout for External/Physical Keyboard for Android devices, we've made the keyboard working with standard NiDA keyboard layout. But we still have problem on combining two unicode character key like "ុ" and "ំ" together in order to get "កុំ​" like word.
 
-## Official Unicode Character
-* Documentation: http://www.unicode.org/charts/PDF/U1780.pdf
+## Documentations
+
+1. [Setup Local Development](wiki/Getting-Started)
+1. [Testing](#)
+* [Official Unicode Character](http://www.unicode.org/charts/PDF/U1780.pdf)
 
 ## Changelogs
 
