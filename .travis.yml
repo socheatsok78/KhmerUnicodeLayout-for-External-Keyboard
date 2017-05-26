@@ -34,21 +34,23 @@ before_install:
   - echo 8933bad161af4178b1185d1a37fbf41ea5269c55 >> ${ANDROID_HOME}licenses/android-sdk-license
   - cat ${ANDROID_HOME}licenses/android-sdk-license
   - echo "Prepare Gradle Build System"
-  - gradle -v
-  - gradle --daemon --foreground &
-  - gradle --full-stacktrace  wrapper --gradle-version 3.3
+  # - gradle -v
+  # - gradle --daemon --foreground &
+  # - gradle --full-stacktrace  wrapper --gradle-version 3.3
 
 # install:
 #   -
 #
-script:
-  - gradle --full-stacktrace build
+# script:
+  # - gradle --full-stacktrace build
   # - ./gradlew build
 #
 after_success:
   - echo "Build Success, Stop Gradle Deamon"
-  - gradle --stop
-#
+  - gradle -v
+  # - gradle --stop
+
 after_failure:
   - echo "Oops! Something Went wrong..."
   - gradle -v
+  # - gradle --stop
