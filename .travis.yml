@@ -1,0 +1,56 @@
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+os: linux
+
+language: android
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-25.0.1
+    - android-24
+    # - extra-google-m2repository
+    # - extra-android-m2repository
+
+jdk:
+  - oraclejdk8
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
+before_install:
+  - echo "Before Install stage"
+  - mkdir -p ${ANDROID_HOME}licenses/
+  - echo 8933bad161af4178b1185d1a37fbf41ea5269c55 >> ${ANDROID_HOME}licenses/android-sdk-license
+  - cat ${ANDROID_HOME}licenses/android-sdk-license
+  - echo "Prepare Gradle Build System"
+  # - gradle -v
+  # - gradle --daemon --foreground &
+  # - gradle --full-stacktrace  wrapper --gradle-version 3.3
+
+# install:
+#   -
+#
+script:
+  # - gradle --full-stacktrace build
+  - ./gradlew build
+#
+after_success:
+  - echo "Build Success, Stop Gradle Deamon"
+  - gradle -v
+  # - gradle --stop
+
+after_failure:
+  - echo "Oops! Something Went wrong..."
+  - gradle -v
+  # - gradle --stop
