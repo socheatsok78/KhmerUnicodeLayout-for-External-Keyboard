@@ -29,19 +29,20 @@ cache:
     - $HOME/.android/build-cache
 
 before_install:
-  - gradle -v
   - echo "Before Install stage"
   - mkdir -p ${ANDROID_HOME}licenses/
   - echo 8933bad161af4178b1185d1a37fbf41ea5269c55 >> ${ANDROID_HOME}licenses/android-sdk-license
   - cat ${ANDROID_HOME}licenses/android-sdk-license
-  - gradle wrapper
+  - echo "Prepare Gradle Build System"
+  - gradle -v
+  - gradle wrapper --gradle-version 3.3
 
 # install:
 #   -
 #
 script:
   - gradle build
-  - ./gradlew build
+  # - ./gradlew build
 #
 after_success:
   - echo "Build Success"
