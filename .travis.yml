@@ -41,6 +41,7 @@ before_install:
 #
 script:
   - gradle build
+  - ./gradlew build
 #
 after_success:
   - echo "Build Success"
