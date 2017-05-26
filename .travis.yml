@@ -35,7 +35,7 @@ before_install:
   - cat ${ANDROID_HOME}licenses/android-sdk-license
   - echo "Prepare Gradle Build System"
   - gradle -v
-  - gradle --daemon --foreground
+  - gradle --daemon --foreground &
   - gradle --full-stacktrace  wrapper --gradle-version 3.3
 
 # install:
