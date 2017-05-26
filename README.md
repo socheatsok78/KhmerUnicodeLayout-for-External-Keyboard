@@ -7,7 +7,7 @@
 
 ## Documentations
 
-1. [Setup Local Development](wiki/Getting-Started)
+1. [Setup Local Development](https://github.com/socheatsok78/KhmerUnicodeLayout-for-External-Keyboard/wiki/Getting-Started)
 1. [Testing](#)
 * [Official Unicode Character](http://www.unicode.org/charts/PDF/U1780.pdf)
 
