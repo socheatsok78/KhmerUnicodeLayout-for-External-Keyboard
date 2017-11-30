@@ -12,18 +12,9 @@ android:
   - android-24
 jdk:
 - oraclejdk8
-before_cache:
-- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-- rm -rf $HOME/.gradle/caches/*/plugin-resolution/
-cache:
-  directories:
-  - "$HOME/.gradle/caches/"
-  - "$HOME/.gradle/wrapper/"
-  - "$HOME/.android/build-cache"
 before_install:
 - echo "Before Install stage"
-- mkdir -p ${ANDROID_HOME}licenses/
-- yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses
+# - yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses
 - cat ${ANDROID_HOME}licenses/android-sdk-license
 - echo "Prepare Gradle Build System"
 script:
