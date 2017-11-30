@@ -2,55 +2,42 @@ notifications:
   email:
     on_success: never
     on_failure: change
-
 os: linux
-
 language: android
-
 android:
   components:
-    - tools
-    - platform-tools
-    - build-tools-25.0.1
-    - android-24
-    # - extra-google-m2repository
-    # - extra-android-m2repository
-
+  - tools
+  - platform-tools
+  - build-tools-25.0.1
+  - android-24
 jdk:
-  - oraclejdk8
-
+- oraclejdk8
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -rf $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - $HOME/.android/build-cache
-
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+  - "$HOME/.android/build-cache"
 before_install:
-  - echo "Before Install stage"
-  - mkdir -p ${ANDROID_HOME}licenses/
-  - echo 8933bad161af4178b1185d1a37fbf41ea5269c55 >> ${ANDROID_HOME}licenses/android-sdk-license
-  - cat ${ANDROID_HOME}licenses/android-sdk-license
-  - echo "Prepare Gradle Build System"
-  # - gradle -v
-  # - gradle --daemon --foreground &
-  # - gradle --full-stacktrace  wrapper --gradle-version 3.3
-
-# install:
-#   -
-#
+- echo "Before Install stage"
+- mkdir -p ${ANDROID_HOME}licenses/
+- yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses
+- cat ${ANDROID_HOME}licenses/android-sdk-license
+- echo "Prepare Gradle Build System"
 script:
-  # - gradle --full-stacktrace build
-  - ./gradlew build
-#
+- "./gradlew build"
 after_success:
-  - echo "Build Success, Stop Gradle Deamon"
-  - gradle -v
-  # - gradle --stop
-
+- echo "Build Success, Stop Gradle Deamon"
+- gradle -v
 after_failure:
-  - echo "Oops! Something Went wrong..."
-  - gradle -v
-  # - gradle --stop
+- echo "Oops! Something Went wrong..."
+- gradle -v
+deploy:
+  provider: releases
+  api_key:
+    secure: P/tnH5yQ1YbMntEITLbT2p1G6cKhEXAHUJbwdAwq9sDrZZLtE5vUZUut0wFdl24oTm7M9pxtmHVeHlaO2NVAAD0TgGjzGOhbT3Rxd4veT0+8Twb3WeMlpCx08ea4uS5ePpSx/UjISGmzOMEjKkg1CS1/WwBjRTXHsJm6cE99Ycg209hZTXsv9+2QJOlqiXEvBuaN8NJ2sFzpUGJFci9Mudf8AW5F0fAohHTO++icfmQ/cVSCnWy8xUTLP8ryeMjj5MKfn+qGmu/TYDEtKw87pJQQuLXhdtjYpCG6U60eJLhKPYtX8dAOJzY/2+4W/kbR4DUiBRRa/miGuYHg94gIsjUSX2O72szV0od1n4fCaTbTo/feZWhBHF+LV5LmyVa5O1R7yOEP0hWDG3iXf/EoEDgs7mYdixS/5rbgyAo/VNkeFPbVgELlLuOgWEGP+pVwLHyRnoBOLUBPiO1muV1wKxQO7h0mhPaYK6KuIV1/q54+CZ4ZoDYqt1LsKXZKtPK2veVxTPE/5QkkK98ngOzidyXqqTyB442OKFbh139FDtPiX2ZwVKuG9+pbTRwHlwrlsXYQ2BBGvHwT+rnvQn/eWnIl9HYRP40eC8ZEOE928qv0O++Tm6CNXwdBuVmtrtQcZintXCzDlcMZNRRlQPS2wVNUoog8BOpCpRGdRX8jITc=
+  file: app/build/outputs/apk/*.apk
+  on:
+    repo: socheatsok78/KhmerUnicodeLayout-for-External-Keyboard
