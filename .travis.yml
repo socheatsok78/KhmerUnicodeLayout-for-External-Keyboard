@@ -6,6 +6,11 @@ android:
     - tools # needs to be first to get new package versions
     - build-tools-25.0.3
     - platform-tools
+  licenses:
+  - 'android-sdk-preview-license-52d11cd2'
+  - 'android-sdk-license-.+'
+  - 'google-gdk-license-.+'
+
 jdk:
 - oraclejdk8
 before_cache:
