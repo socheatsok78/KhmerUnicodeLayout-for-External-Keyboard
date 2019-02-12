@@ -26,8 +26,8 @@ cache:
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
  
-before_script:
-  - yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses
+# before_script:
+  # - yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses
 
 before_install:
   - echo "Prepare Gradle Build System"
