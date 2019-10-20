@@ -1,6 +1,6 @@
 os: linux
 language: android
-sudo: false
+sudo: required
 android:
   components:
     - tools
@@ -27,8 +27,8 @@ cache:
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
  
-# before_script:
-  # - yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses
+before_script:
+   yes | sudo sdkmanager --licenses
 
 before_install:
   - echo "Prepare Gradle Build System"
